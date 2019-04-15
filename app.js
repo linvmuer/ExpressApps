@@ -5,7 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');//represents the route exported by index.js from the routes directory
+var indexRouter = require('./routes/index');//represents the route exported by landing.js from the routes directory
 var usersRouter = require('./routes/users');
 
 var app = express();

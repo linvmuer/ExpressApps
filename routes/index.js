@@ -14,5 +14,6 @@ router.post('/',landing.submit_lead);
 
 //listing the leads
 router.get('/leads',landing.show_leads);
+router.get('/lead/:lead_id',landing.show_lead);//handle all the individual leads whatever passed in the url will parsed as request parameter
 module.exports = router;
 //we pass out the module for other files to use it

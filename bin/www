@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
-//onotialize sequelize
+//initialize sequelize
 let models=require('../models');
 /**
  * Get port from environment and store in Express.
@@ -25,6 +25,7 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+//we are going to initialise sequelize here
 return models.sequelize.sync().then(result=>{
   server.listen(port);
   server.on('error', onError);

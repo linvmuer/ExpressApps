@@ -14,6 +14,11 @@ router.post('/',landing.submit_lead);
 
 //listing the leads
 router.get('/leads',landing.show_leads);
+//route to list the details of each lead]
 router.get('/lead/:lead_id',landing.show_lead);//handle all the individual leads whatever passed in the url will parsed as request parameter
+//route of editing leads
+router.get('/lead/:lead_id/edit',landing.show_edit_lead);//shows a form to edit the lead
+router.post('/lead/:lead_id/edit',landing.edit_lead);//does the editing of data in the database
+router.post('/lead/:lead_id/delete',landing.delete_lead);
 module.exports = router;
 //we pass out the module for other files to use it

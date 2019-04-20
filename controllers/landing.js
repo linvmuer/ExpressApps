@@ -32,3 +32,39 @@ exports.show_lead=function(req, res, next) {
     })
  
 };
+exports.show_edit_lead=function(req, res, next) {
+    return models.Lead.findOne({
+        where:{
+            id:req.params.lead_id
+        }
+    }).then(lead=>{
+        res.render('lead/edit_lead',{lead:lead});
+    })
+ 
+};
+exports.edit_lead=function(req, res, next) {
+    console.log(req.params.lead_id);
+    req.body.lead_email
+    return models.Lead.update({
+        email:req.body.lead_email
+    },{
+        where:{
+            id:req.params.lead_id
+        }
+    }).then(result=>{
+        //redirect after succesful
+        res.redirect('/leads');
+
+       // res.render("/lead/:"+ req.params.lead_id)
+    });
+};
+exports.delete_lead=function(req,res,next){
+   return models.Lead.destroy({
+      where:{
+        id:req.params.lead_id
+      }
+   }).then(results=>{
+     res.redirect('/leads'); 
+   })
+}
+//10327
